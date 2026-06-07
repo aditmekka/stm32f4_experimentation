@@ -62,6 +62,8 @@ TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart4;
 
+uint8_t pwm_adv_duty = 0;
+
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -152,6 +154,11 @@ int main(void)
   {
     /* USER CODE END WHILE */
     blink_led(1000);
+
+    encoder_update();
+    pwm_adv_duty = encoder_get_delta();
+
+    pwm_set_duty(PWM_ADV, pwm_adv_duty);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

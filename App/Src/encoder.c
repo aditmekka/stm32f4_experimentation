@@ -1,5 +1,7 @@
+#include "main.h"
 #include "encoder.h"
-#include "tim.h"
+
+extern TIM_HandleTypeDef htim4;
 
 static int16_t encoder_delta = 0;
 static uint16_t prev_cnt = 0;
